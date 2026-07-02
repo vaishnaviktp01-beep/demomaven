@@ -1,0 +1,14 @@
+<APIProxy revision="1" name="HelloWorld">
+<Description>Sample HelloWorld API proxy</Description>
+<DisplayName>HelloWorld</DisplayName>
+<Policies>
+<Policy>AM-SetHeaders</Policy>
+<Policy>AM-ErrorResponse</Policy>
+</Policies>
+<ProxyEndpoints>
+<ProxyEndpoint>default</ProxyEndpoint>
+</ProxyEndpoints>
+<TargetEndpoints>
+<TargetEndpoint>default</TargetEndpoint>
+</TargetEndpoints>
+</APIProxy>
