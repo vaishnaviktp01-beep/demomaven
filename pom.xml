@@ -28,6 +28,7 @@
       </profile>
    </profiles>
    <build>
+      <finalName>HelloWorld</finalName>
       <plugins>
          <plugin>
             <groupId>io.apigee.build-tools.enterprise4g</groupId>
