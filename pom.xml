@@ -92,7 +92,7 @@
                <apigeeAPIVersion>${apigee.apiversion}</apigeeAPIVersion>
                <options>${apigee.options}</options>
                <delay>${apigee.delay}</delay>
-               <apigeeProxyDir>${project.basedir}/apiproxy</apigeeProxyDir>
+               <apigeeAPIDirectory>${project.basedir}</apigeeAPIDirectory>
             </configuration>
          </plugin>
       </plugins>
