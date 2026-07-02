@@ -5,7 +5,7 @@
    <artifactId>HelloWorld</artifactId>
    <version>1.0.0</version>
    <packaging>pom</packaging>
-   <name>HelloWorld Apigee Proxy</name>
+   <name>HelloWorld</name>
    <description>Apigee API proxy deployed via the Apigee Maven plugin</description>
    <repositories>
     <repository>
