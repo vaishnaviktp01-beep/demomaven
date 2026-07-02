@@ -1,0 +1,24 @@
+{
+  "name": "apigee-cicd",
+  "version": "1.0.0",
+  "description": "CI/CD pipeline for Apigee API proxy deployment to eval environment",
+  "scripts": {
+    "lint": "apigeelint -s apiproxy/",
+    "bundle": "node scripts/bundle.js",
+    "deploy": "node scripts/deploy.js",
+    "test": "node test/integration/basic.test.js"
+  },
+  "dependencies": {
+    "archiver": "^7.0.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.0",
+    "form-data": "^4.0.0",
+    "google-auth-library": "^9.0.0"
+  },
+  "devDependencies": {
+    "apigeelint": "^2.31.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
