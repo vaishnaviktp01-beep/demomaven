@@ -1,0 +1,7 @@
+{
+  "environment": "eval",
+  "basePath": "/v1/hello",
+  "targetUrl": "https://mocktarget.apigee.net/xml",
+  "deploymentTimeout": 120000,
+  "testRetries": 3
+}
