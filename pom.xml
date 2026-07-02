@@ -27,6 +27,19 @@
          </properties>
       </profile>
    </profiles>
+   <pluginRepositories>
+      <pluginRepository>
+         <id>github-apigee</id>
+         <name>GitHub Apigee Maven Plugin</name>
+         <url>https://maven.pkg.github.com/apigee/apigee-deploy-maven-plugin</url>
+         <releases>
+            <enabled>true</enabled>
+         </releases>
+         <snapshots>
+         <enabled>false</enabled>
+         </snapshots>
+      </pluginRepository>
+   </pluginRepositories>
    <build>
       <finalName>HelloWorld</finalName>
       <plugins>
