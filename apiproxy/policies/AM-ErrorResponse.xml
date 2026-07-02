@@ -6,5 +6,4 @@
 <ReasonPhrase>{response.reason.phrase}</ReasonPhrase>
 </Set>
 <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-<AssignTo createNew="false" transport="http" type="response"/>
 </AssignMessage>
