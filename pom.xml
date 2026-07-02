@@ -63,9 +63,9 @@
             </executions>
          </plugin>
          <plugin>
-            <groupId>io.apigee.build-tools</groupId>
-            <artifactId>apigee-deploy-maven-plugin</artifactId>
-            <version>2.4.0</version>
+            <groupId>io.apigee.build-tools.enterprise4g</groupId>
+            <artifactId>apigee-edge-maven-plugin</artifactId>
+            <version>2.5.2</version>
             <executions>
                <!--  package phase: zip the apiproxy/ directory  -->
                <execution>
