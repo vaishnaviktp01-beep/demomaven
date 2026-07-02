@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "CI/CD pipeline for Apigee API proxy deployment to eval environment",
   "scripts": {
-    "lint": "apigeelint -s apiproxy/",
+    "lint": "apigeelint -s apiproxy/ --excluded apiproxy/resources/.gitkeep",
     "bundle": "node scripts/bundle.js",
     "deploy": "node scripts/deploy.js",
     "test": "node test/integration/basic.test.js"
