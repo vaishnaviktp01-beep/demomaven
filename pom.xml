@@ -7,6 +7,13 @@
    <packaging>pom</packaging>
    <name>HelloWorld Apigee Proxy</name>
    <description>Apigee API proxy deployed via the Apigee Maven plugin</description>
+   <repositories>
+    <repository>
+        <id>apigee-releases</id>
+        <name>Apigee Releases</name>
+        <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+ </repositories>
    <profiles>
       <!--  ── Eval environment ────────────────────────────────────────────────  -->
       <profile>
