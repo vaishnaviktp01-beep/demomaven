@@ -1,15 +1,14 @@
 <ProxyEndpoint name="default">
-<Description>Default proxy endpoint</Description>
+  <Description>Default proxy endpoint</Description>
 <HTTPProxyConnection>
-<BasePath>/v1/hello</BasePath>
+  <BasePath>/v1/hello</BasePath>
 </HTTPProxyConnection>
 <FaultRules>
-<FaultRule name="DefaultFaultRule">
+<DefaultFaultRule name="DefaultFaultRule">
 <Step>
 <Name>AM-ErrorResponse</Name>
 </Step>
-</FaultRule>
-</FaultRules>
+</DefaultFaultRule>
 <PreFlow name="PreFlow">
 <Request>
 <Step>
