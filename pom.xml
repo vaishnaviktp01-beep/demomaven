@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.example.apigee</groupId>
+   <artifactId>HelloWorld</artifactId>
+   <version>1.0.0</version>
+   <packaging>pom</packaging>
+   <name>HelloWorld Apigee Proxy</name>
+   <description>Apigee API proxy deployed via the Apigee Maven plugin</description>
+   <profiles>
+      <!--  ── Eval environment ────────────────────────────────────────────────  -->
+      <profile>
+         <id>eval</id>
+         <properties>
+            <apigee.env>eval</apigee.env>
+            <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
+            <apigee.apiversion>google</apigee.apiversion>
+            <apigee.options>override</apigee.options>
+            <apigee.delay>5000</apigee.delay>
+         </properties>
+      </profile>
+   </profiles>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>io.apigee.build-tools</groupId>
+            <artifactId>apigee-edge-maven-plugin</artifactId>
+            <version>2.5.2</version>
+            <executions>
+               <!--  package phase: zip the apiproxy/ directory  -->
+               <execution>
+                  <id>configure-bundle</id>
+                  <phase>package</phase>
+                  <goals>
+                     <goal>configure</goal>
+                  </goals>
+               </execution>
+               <!--  install phase: import the bundle then deploy the revision  -->
+               <execution>
+                  <id>deploy-bundle</id>
+                  <phase>install</phase>
+                  <goals>
+                     <goal>deploy</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <apigeeOrg>${apigee.org}</apigeeOrg>
+               <apigeeEnv>${apigee.env}</apigeeEnv>
+               <authType>${apigee.authtype}</authType>
+               <apigeeCredential>${apigee.credential}</apigeeCredential>
+               <apigeeAPIVersion>${apigee.apiversion}</apigeeAPIVersion>
+               <options>${apigee.options}</options>
+               <delay>${apigee.delay}</delay>
+               <apigeeProxyDir>${project.basedir}/apiproxy</apigeeProxyDir>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+</project>
