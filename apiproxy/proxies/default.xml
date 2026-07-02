@@ -8,7 +8,6 @@
 <Step>
 <Name>AM-ErrorResponse</Name>
 </Step>
-<Condition>true</Condition>
 </FaultRule>
 </FaultRules>
 <PreFlow name="PreFlow">
