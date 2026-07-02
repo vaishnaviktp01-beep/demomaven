@@ -4,6 +4,7 @@
 <URL>https://mocktarget.apigee.net/xml</URL>
 <SSLInfo>
 <Enabled>true</Enabled>
+<TrustStore>ref://trust-store</TrustStore>
 </SSLInfo>
 </HTTPTargetConnection>
 <FaultRules/>
