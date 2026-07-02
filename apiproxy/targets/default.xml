@@ -2,6 +2,9 @@
 <Description>Default target endpoint</Description>
 <HTTPTargetConnection>
 <URL>https://mocktarget.apigee.net/xml</URL>
+<SSLInfo>
+<Enabled>true</Enabled>
+</SSLInfo>
 </HTTPTargetConnection>
 <FaultRules/>
 <PreFlow name="PreFlow">
