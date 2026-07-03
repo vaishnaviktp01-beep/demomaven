@@ -55,8 +55,7 @@ jobs:
 
     environment:
       name: eval
-      url: https://${{ secrets.APIGEE_ORG }}-eval.apigee.net/v1/hello
-
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
