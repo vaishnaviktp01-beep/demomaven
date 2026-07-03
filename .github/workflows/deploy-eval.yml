@@ -38,7 +38,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: ''  # Disable cache if you don't have a lock file
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
@@ -51,11 +51,11 @@ jobs:
     name: Deploy to Eval (Maven)
     needs: lint
     runs-on: ubuntu-latest
-    # Only deploy on push to main/develop or manual trigger — not on PRs
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
 
     environment:
       name: eval
+      url: https://${{ secrets.APIGEE_ORG }}-eval.apigee.net/v1/hello
 
     steps:
       - name: Checkout repository
