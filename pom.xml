@@ -40,61 +40,58 @@
          </snapshots>
       </pluginRepository>
    </pluginRepositories>
-   <build>
-      <finalName>HelloWorld</finalName>
-      <plugins>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>3.1.0</version>
-            <executions>
-               <execution>
-                  <id>create-target-dir</id>
-                  <phase>initialize</phase>
-                  <goals>
-                     <goal>run</goal>
-                  </goals>
-                  <configuration>
-                     <target>
-                        <mkdir dir="${project.build.directory}"/>
-                     </target>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>
-         <plugin>
-            <groupId>io.apigee.build-tools.enterprise4g</groupId>
-            <artifactId>apigee-edge-maven-plugin</artifactId>
-            <version>2.3.4</version>
-            <executions>
-               <!--  package phase: zip the apiproxy/ directory  -->
-               <execution>
-                  <id>configure-bundle</id>
-                  <phase>package</phase>
-                  <goals>
-                     <goal>configure</goal>
-                  </goals>
-               </execution>
-               <!--  install phase: import the bundle then deploy the revision  -->
-               <execution>
-                  <id>deploy-bundle</id>
-                  <phase>install</phase>
-                  <goals>
-                     <goal>deploy</goal>
-                  </goals>
-               </execution>
-            </executions>
+  <build>
+    <finalName>HelloWorld</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>create-target-dir</id>
+            <phase>initialize</phase>
+            <goals><goal>run</goal></goals>
             <configuration>
-               <apigeeOrg>${apigee.org}</apigeeOrg>
-               <apigeeEnv>${apigee.env}</apigeeEnv>
-               <authType>${apigee.authtype}</authType>
-               <apigeeCredential>${apigee.credential}</apigeeCredential>
-               <apigeeAPIVersion>${apigee.apiversion}</apigeeAPIVersion>
-               <options>${apigee.options}</options>
-               <delay>${apigee.delay}</delay>
-               <apigeeAPIDirectory>${project.basedir}</apigeeAPIDirectory>
+              <target>
+                <mkdir dir="${project.build.directory}"/>
+                <mkdir dir="${project.build.directory}/apiproxy"/>
+              </target>
             </configuration>
-         </plugin>
-      </plugins>
-   </build>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>io.apigee.build-tools.enterprise4g</groupId>
+        <artifactId>apigee-edge-maven-plugin</artifactId>
+        <version>2.3.4</version>
+        <executions>
+          <execution>
+            <id>configure-bundle</id>
+            <phase>package</phase>
+            <goals>
+              <goal>configure</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>deploy-bundle</id>
+            <phase>install</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <apigeeOrg>${apigee.org}</apigeeOrg>
+          <apigeeEnv>${apigee.env}</apigeeEnv>
+          <authType>${apigee.authtype}</authType>
+          <apigeeCredential>${apigee.credential}</apigeeCredential>
+          <apigeeAPIVersion>${apigee.apiversion}</apigeeAPIVersion>
+          <options>${apigee.options}</options>
+          <delay>${apigee.delay}</delay>
+          <apigeeAPIDirectory>${project.basedir}</apigeeAPIDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
