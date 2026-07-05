@@ -38,7 +38,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-        
 
       - name: Install dependencies
         run: npm install
@@ -55,7 +54,7 @@ jobs:
 
     environment:
       name: eval
-      
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -68,19 +67,20 @@ jobs:
           cache: 'maven'
 
       - name: Authenticate to Google Cloud
-        id: auth
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
-          token_format: access_token
 
       - name: Deploy proxy to Eval with Maven
         run: |
+          TOKEN=$(gcloud auth print-access-token)
+          echo "Token length: ${#TOKEN}"
           mvn clean install \
             -P eval \
             -Dapigee.org=${{ secrets.APIGEE_ORG }} \
             -Dapigee.authtype=oauth \
-            -Dapigee.credential=${{ steps.auth.outputs.access_token }} \
+            -Dapigee.credential="${TOKEN}" \
+            -Dapigee.bearer="${TOKEN}" \
             --no-transfer-progress
 
   # ── Job 3: Integration Tests ─────────────────────────────────────────────────
@@ -97,7 +97,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
