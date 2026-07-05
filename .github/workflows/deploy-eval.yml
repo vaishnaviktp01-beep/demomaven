@@ -106,4 +106,5 @@ jobs:
           APIGEE_ORG: ${{ secrets.APIGEE_ORG }}
           APIGEE_ENV: ${{ env.APIGEE_ENV }}
           APIGEE_PROXY_NAME: ${{ secrets.APIGEE_PROXY_NAME }}
+          APIGEE_RUNTIME_HOST: ${{ secrets.APIGEE_RUNTIME_HOST }}
         run: npm test
