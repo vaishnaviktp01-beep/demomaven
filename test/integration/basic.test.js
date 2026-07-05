@@ -7,9 +7,11 @@ const axios = require('axios');
 const org = process.env.APIGEE_ORG;
 const env = process.env.APIGEE_ENV || 'eval';
 const proxyName = process.env.APIGEE_PROXY_NAME || 'HelloWorld';
+// Apigee X runtime host is a custom hostname set in the Environment Group.
+// Set APIGEE_RUNTIME_HOST in GitHub Actions secrets/variables (e.g. api.example.com).
+const runtimeHost = process.env.APIGEE_RUNTIME_HOST;
 
-// Apigee X runtime hostname: <org>-<env>.apigee.net
-const baseUrl = `https://${org}-${env}.apigee.net/v1/hello`;
+const baseUrl = `https://${runtimeHost}/v1/hello`;
 
 const TIMEOUT_MS = 10000;
 
@@ -31,6 +33,10 @@ async function assert(name, fn) {
 async function runTests() {
   if (!org) {
     console.error('APIGEE_ORG is required for integration tests.');
+    process.exit(1);
+  }
+  if (!runtimeHost) {
+    console.error('APIGEE_RUNTIME_HOST is required (your Apigee X envgroup hostname).');
     process.exit(1);
   }
 
