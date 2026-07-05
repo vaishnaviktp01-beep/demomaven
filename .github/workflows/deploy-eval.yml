@@ -1,14 +1,6 @@
 name: Deploy Apigee Proxy to Eval
 
 on:
-  push:
-    branches:
-      - main
-      - develop
-  pull_request:
-    branches:
-      - main
-    types: [opened, synchronize, reopened]
   workflow_dispatch:
     inputs:
       environment:
