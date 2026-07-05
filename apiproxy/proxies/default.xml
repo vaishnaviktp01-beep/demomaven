@@ -16,7 +16,11 @@
         <Name>AM-SetHeaders</Name>
       </Step>
     </Request>
-    <Response/>
+    <Response>
+      <Step>
+        <Name>AM-SetHeaders</Name>
+      </Step>
+    </Response>
   </PreFlow>
   <PostFlow name="PostFlow">
     <Request/>
