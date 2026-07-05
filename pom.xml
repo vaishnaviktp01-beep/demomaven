@@ -21,7 +21,7 @@
          <properties>
             <apigee.env>eval</apigee.env>
             <apigee.hosturl>https://apigee.googleapis.com</apigee.hosturl>
-            <apigee.apiversion>google</apigee.apiversion>
+            <apigee.apiversion>v1</apigee.apiversion>
             <apigee.options>override</apigee.options>
             <apigee.delay>5000</apigee.delay>
          </properties>
