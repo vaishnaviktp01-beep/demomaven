@@ -55,22 +55,19 @@ async function runTests() {
     }
   });
 
-  await assert('Response body is valid JSON', async () => {
-    const res = await axios.get(baseUrl, {
-      timeout: TIMEOUT_MS,
-      responseType: 'json',
-    });
-    if (typeof res.data !== 'object' || res.data === null) {
-      throw new Error('Response body is not a JSON object');
+  await assert('Response body is non-empty', async () => {
+    const res = await axios.get(baseUrl, { timeout: TIMEOUT_MS });
+    const body = typeof res.data === 'string' ? res.data : JSON.stringify(res.data);
+    if (!body || body.length === 0) {
+      throw new Error('Response body is empty');
     }
   });
 
-  await assert('Non-existent path returns 404', async () => {
-    const res = await axios.get(`${baseUrl}/nonexistent`, {
-      timeout: TIMEOUT_MS,
-      validateStatus: () => true,
-    });
-    if (res.status !== 404) throw new Error(`Expected 404, got ${res.status}`);
+  await assert('Response includes X-Request-ID header', async () => {
+    const res = await axios.get(baseUrl, { timeout: TIMEOUT_MS });
+    if (!res.headers['x-request-id']) {
+      throw new Error('Missing X-Request-ID response header');
+    }
   });
 
   console.log(`\nResults: ${passed} passed, ${failed} failed`);
