@@ -85,11 +85,11 @@
           <apigeeOrg>${apigee.org}</apigeeOrg>
           <apigeeEnv>${apigee.env}</apigeeEnv>
           <authType>${apigee.authtype}</authType>
-          <apigeeCredential>${apigee.credential}</apigeeCredential>
-          <apigeeAPIVersion>${apigee.apiversion}</apigeeAPIVersion>
-          <options>${apigee.options}</options>
-          <delay>${apigee.delay}</delay>
-          <apigeeAPIDirectory>${project.basedir}</apigeeAPIDirectory>
+         <bearerToken>${apigee.credential}</bearerToken>
+         <apigeeAPIVersion>${apigee.apiversion}</apigeeAPIVersion>
+         <options>${apigee.options}</options>
+         <delay>${apigee.delay}</delay>
+         <apigeeAPIDirectory>${project.basedir}</apigeeAPIDirectory>
         </configuration>
       </plugin>
     </plugins>
